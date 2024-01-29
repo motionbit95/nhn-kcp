@@ -195,16 +195,34 @@ function makeSignatureData(data) {
   const absoluteFilePath = path.resolve(__dirname, filePath);
 
   var key_file = fs.readFileSync(absoluteFilePath).toString();
-  var password = "changeit";
-  // 서명데이터생성
-  return crypto.createSign("sha256").update(data).sign(
-    {
-      format: "pem",
-      key: key_file,
-      passphrase: password,
-    },
-    "base64"
-  );
+  var password = "wlsghks2@!";
+
+  // 서명 생성
+  const sign = crypto
+    .createSign("sha256")
+    .update(data)
+    .sign({ format: "pem", key: key_file, passphrase: password }, "base64");
+
+  return sign;
 }
+
+// function get_cert_info() {
+//   // 개인키 경로
+//   const filePath = "../certificate/KCP_AUTH_AJZLF_CERT.pem";
+//   // 현재 스크립트가 위치한 디렉토리를 기준으로 상대경로를 절대경로로 변환
+//   const absoluteFilePath = path.resolve(__dirname, filePath);
+
+//   const STX = "-----BEGIN CERTIFICATE-----";
+//   const ETX = "-----END CERTIFICATE-----";
+//   // 개인 키 파일 읽기
+//   const cert_info = fs
+//     .readFileSync(absoluteFilePath, "utf8")
+//     .toString()
+//     .replace(STX, "")
+//     .replace(ETX, "")
+//     .replace(/(\s*)/g, "");
+
+//   return STX + cert_info + ETX;
+// }
 
 module.exports = router;
