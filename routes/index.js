@@ -77,6 +77,8 @@ router.post("/sample/kcp_cert_res", function (req, res) {
     .then((data) => {
       var dn_res_cd = data.res_cd;
 
+      console.log(dn_res_cd, cert_no);
+
       ct_type = "DEC";
 
       var decrypt_data = site_cd + "^" + ct_type + "^" + cert_no; //데이터 복호화 검증 서명 데이터
