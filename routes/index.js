@@ -31,8 +31,6 @@ router.post("/sample/kcp_cert_start", function (req, res) {
     kcp_cert_lib_ver: f_get_parm(req.body.kcp_cert_lib_ver),
     web_siteid_hashYN: f_get_parm(req.body.web_siteid_hashYN),
   });
-
-  console.log(req.body);
 });
 
 // kcp_cert_req PAGE (ret_url)
@@ -42,15 +40,12 @@ router.post("/sample/kcp_cert_req", function (req, res) {
   res.render("sample/kcp_cert_req", {
     sbParam: JSON.stringify(sbParam),
   });
-
-  console.log(req.body);
 });
 
 // kcp_cert_res PAGE
 router.post("/sample/kcp_cert_res", function (req, res) {
   var site_cd = req.body.site_cd;
-  var cert_no =
-    "cc533530bb4f466456e05b89f5142e2ec7ed37982f82802a44782d8f0c14f5f8";
+  var cert_no = req.body.cert_no;
   var dn_hash = req.body.dn_hash;
   var ct_type = "CHK";
   var sbParam = req.body;
@@ -97,6 +92,8 @@ router.post("/sample/kcp_cert_res", function (req, res) {
         kcp_sign_data: kcp_sign_data,
       };
 
+      console.log(req_data);
+
       //dn _hash 검증데이터가 정상일 때, 복호화 요청 함
       if (dn_res_cd === "0000") {
         fetch(process.env.g_conf_cert_url, {
@@ -133,8 +130,6 @@ router.post("/sample/kcp_cert_res", function (req, res) {
       } else {
         console.log("dn_hash 변조 위험있음"); //dn_hash 검증에 실패했을 때, console 출력
       }
-
-      console.log(req_data);
     });
 });
 
