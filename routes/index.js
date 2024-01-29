@@ -14,6 +14,14 @@ router.get("/", function (req, res) {
   });
 });
 
+router.get("/redirect", (req, res) => {
+  // 클라이언트에게 리디렉션을 알림
+  res.status(301).send({
+    redirectTo: "https://dinnermate-node-server-0d7d5dc74685.herokuapp.com/",
+    // redirectTo: "http://localhost:3000/info",
+  });
+});
+
 // make_hash PAGE
 router.get("/sample/make_hash", function (req, res) {
   res.render("sample/make_hash");
@@ -45,7 +53,7 @@ router.post("/sample/kcp_cert_req", function (req, res) {
 
 // kcp_cert_res PAGE
 router.post("/sample/kcp_cert_res", function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   var site_cd = req.body.site_cd;
   var cert_no = req.body.cert_no;
   var dn_hash = req.body.dn_hash;

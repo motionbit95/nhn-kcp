@@ -3,42 +3,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <!-- <meta http-equiv="refresh" content="1;url=http://localhost:3000/info"> -->
+        <meta http-equiv="refresh" content="1;url=https://dinnermate-node-server-0d7d5dc74685.herokuapp.com/info">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>*** NHN KCP Online Payment System [Node.js Version] ***</title>
     <script type="text/javascript">
-        window.onload = function () {
-            var tempParams = document.getElementById('sbParam').innerHTML;
-            tempParams = JSON.parse(tempParams)
+        // window.onload = function () {
 
-            for (var key in tempParams) {
-                var hiddenField = document.createElement("input");
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", key);
-                hiddenField.setAttribute("value", tempParams[key]);
-                document.form_auth.appendChild(hiddenField);
-            }
+        //     var tempParams = document.getElementById('sbParam').innerHTML;
+        //     tempParams = JSON.parse(tempParams)
 
-            var res_data = document.getElementById('data').innerHTML;
-            res_data = JSON.parse(res_data)
-            var keys = Object.keys(res_data);
+        //     for (var key in tempParams) {
+        //         var hiddenField = document.createElement("input");
+        //         hiddenField.setAttribute("type", "hidden");
+        //         hiddenField.setAttribute("name", key);
+        //         hiddenField.setAttribute("value", tempParams[key]);
+        //         document.form_auth.appendChild(hiddenField);
+        //     }
 
-                for (var i=0; i<keys.length; i++) {
+        //     var res_data = document.getElementById('data').innerHTML;
+        //     res_data = JSON.parse(res_data)
+        //     var keys = Object.keys(res_data);
+        //     for (var i = 0; i < keys.length; i++) {
 
-                    var key = keys[i];
-                    var divField = document.createElement("div");
-                    var newText = document.createTextNode( key + " : " + res_data[key]);
-                    divField.appendChild(newText);
-                    document.body.appendChild(divField);
-                }
+        //         var key = keys[i];
+        //         var divField = document.createElement("div");
+        //         var newText = document.createTextNode(key + " : " + res_data[key]);
+        //         divField.appendChild(newText);
+        //         document.body.appendChild(divField);
+        //     }
 
-        }
+
+        //     
+        // }
     </script>
 </head>
 
 <body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
-    <form name="form_auth" method="post">
-        <div id="sbParam" style="display: none;"><%= sbParam %></div>
-        <div id="data" style="display: none;"><%= data %></div>
+    <div>loading...</div>
+    <form name="form_auth" method="post" style="visibility: hidden;">
+        
+        <div id="sbParam" style="display: none;">
+            <%= sbParam %>
+        </div>
+        <div id="data" style="display: none;">
+            <%= data %>
+        </div>
     </form>
 </body>
 
