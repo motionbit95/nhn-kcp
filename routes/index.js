@@ -77,7 +77,7 @@ router.post("/sample/kcp_cert_res", function (req, res) {
     .then((data) => {
       var dn_res_cd = data.res_cd;
 
-      console.log(dn_res_cd, cert_no);
+      console.log(dn_res_cd, cert_no, dn_hash, req.body.enc_cert_data2);
 
       ct_type = "DEC";
 
