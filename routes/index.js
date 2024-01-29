@@ -31,6 +31,8 @@ router.post("/sample/kcp_cert_start", function (req, res) {
     kcp_cert_lib_ver: f_get_parm(req.body.kcp_cert_lib_ver),
     web_siteid_hashYN: f_get_parm(req.body.web_siteid_hashYN),
   });
+
+  console.log(req.body);
 });
 
 // kcp_cert_req PAGE (ret_url)
@@ -40,6 +42,8 @@ router.post("/sample/kcp_cert_req", function (req, res) {
   res.render("sample/kcp_cert_req", {
     sbParam: JSON.stringify(sbParam),
   });
+
+  console.log(req.body);
 });
 
 // kcp_cert_res PAGE
