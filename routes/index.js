@@ -190,7 +190,7 @@ function makeSignatureData(data) {
   // "changeit" 은 테스트용 개인키비밀번호
 
   // 개인키 경로
-  const filePath = "../certificate/splPrikeyPKCS8.pem";
+  const filePath = "../certificate/KCP_AUTH_AJZLF_PRIKEY.pem";
   // 현재 스크립트가 위치한 디렉토리를 기준으로 상대경로를 절대경로로 변환
   const absoluteFilePath = path.resolve(__dirname, filePath);
 
