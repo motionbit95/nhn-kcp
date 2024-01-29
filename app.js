@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const dev = false;
 const url = dev
   ? `http://localhost:${PORT}`
