@@ -49,7 +49,8 @@ router.post("/sample/kcp_cert_req", function (req, res) {
 // kcp_cert_res PAGE
 router.post("/sample/kcp_cert_res", function (req, res) {
   var site_cd = req.body.site_cd;
-  var cert_no = req.body.cert_no;
+  var cert_no =
+    "cc533530bb4f466456e05b89f5142e2ec7ed37982f82802a44782d8f0c14f5f8";
   var dn_hash = req.body.dn_hash;
   var ct_type = "CHK";
   var sbParam = req.body;
