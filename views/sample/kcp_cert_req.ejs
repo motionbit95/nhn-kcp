@@ -26,7 +26,6 @@
             var frm = document.form_auth;
 
             if ((frm.req_tx.value == "auth" || frm.req_tx.value == "otp_auth")) {
-				console.log('test', frm)
                 frm.action = "/sample/kcp_cert_res";
                 frm.submit();
 
@@ -34,8 +33,8 @@
 
             else if (frm.req_tx.value == "cert") {
 
-                //frm.action = "https://testcert.kcp.co.kr/kcp_cert/cert_view.jsp"; // 개발계
-                frm.action="https://cert.kcp.co.kr/kcp_cert/cert_view.jsp"; // 운영계
+                frm.action = "https://testcert.kcp.co.kr/kcp_cert/cert_view.jsp"; // 개발계
+                //frm.action="https://cert.kcp.co.kr/kcp_cert/cert_view.jsp"; // 운영계
                 frm.submit();
             }
         }
@@ -44,7 +43,6 @@
             if (val == null) val = '';
             return val;
         }
-
 
     </script>
 </head>

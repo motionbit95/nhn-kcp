@@ -35,6 +35,7 @@ router.post("/sample/kcp_cert_start", function (req, res) {
 
 // kcp_cert_req PAGE (ret_url)
 router.post("/sample/kcp_cert_req", function (req, res) {
+  console.log(req.body);
   //post DATA를 가져와 JSON으로 형변환
   var sbParam = req.body;
   res.render("sample/kcp_cert_req", {
@@ -44,6 +45,7 @@ router.post("/sample/kcp_cert_req", function (req, res) {
 
 // kcp_cert_res PAGE
 router.post("/sample/kcp_cert_res", function (req, res) {
+  console.log(req.body);
   var site_cd = req.body.site_cd;
   var cert_no = req.body.cert_no;
   var dn_hash = req.body.dn_hash;
@@ -77,8 +79,6 @@ router.post("/sample/kcp_cert_res", function (req, res) {
     .then((data) => {
       var dn_res_cd = data.res_cd;
 
-      console.log(dn_res_cd, cert_no, dn_hash, req.body.enc_cert_data2);
-
       ct_type = "DEC";
 
       var decrypt_data = site_cd + "^" + ct_type + "^" + cert_no; //데이터 복호화 검증 서명 데이터
@@ -93,8 +93,6 @@ router.post("/sample/kcp_cert_res", function (req, res) {
         enc_cert_Data: req.body.enc_cert_data2,
         kcp_sign_data: kcp_sign_data,
       };
-
-      console.log(req_data);
 
       //dn _hash 검증데이터가 정상일 때, 복호화 요청 함
       if (dn_res_cd === "0000") {
@@ -193,13 +191,16 @@ function makeSignatureData(data) {
   // "splPrikeyPKCS8.pem" 은 테스트용 개인키
   // "changeit" 은 테스트용 개인키비밀번호
 
-  // 개인키 경로
-  const filePath = "../certificate/KCP_AUTH_AJZLF_PRIKEY.pem";
+  const filePath = "../certificate/splPrikeyPKCS8.pem";
+  var password = "changeit";
+
+  // const filePath = "../certificate/KCP_AUTH_AJZLF_PRIKEY.pem";
+  // var password = "wlsghks2@!";
+
   // 현재 스크립트가 위치한 디렉토리를 기준으로 상대경로를 절대경로로 변환
   const absoluteFilePath = path.resolve(__dirname, filePath);
 
   var key_file = fs.readFileSync(absoluteFilePath).toString();
-  var password = "wlsghks2@!";
 
   // 서명 생성
   const sign = crypto
