@@ -26,8 +26,8 @@
             var frm = document.form_auth;
 
             if ((frm.req_tx.value == "auth" || frm.req_tx.value == "otp_auth")) {
-                console.log("data!!!!!", document.form_auth)
-				frm.action = "/sample/kcp_cert_res";
+				console.log('test', frm)
+                frm.action = "/sample/kcp_cert_res";
                 frm.submit();
 
             }
