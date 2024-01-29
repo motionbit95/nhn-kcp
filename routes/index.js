@@ -132,6 +132,8 @@ router.post("/sample/kcp_cert_res", function (req, res) {
       } else {
         console.log("dn_hash 변조 위험있음"); //dn_hash 검증에 실패했을 때, console 출력
       }
+
+      console.log(req_data);
     });
 });
 
