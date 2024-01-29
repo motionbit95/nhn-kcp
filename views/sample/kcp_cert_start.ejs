@@ -48,13 +48,15 @@
     <div id="cert_info">
         <form name="form_auth" method="post">
             <div class="wrap">
-                <div class="header">
+                <div class="header" style="visibility: hidden;">
                     <a href="/sample/make_hash" class="btn-back"><span>뒤로가기</span></a>
                     <h1 class="title">본인인증 SAMPLE</h1>
                 </div>
+                <input type="submit" onclick="return auth_type_check();" class="btn-type-2 pc-wd-3"
+                                value="인증요청">
                 <!-- //header -->
                 <!-- contents -->
-                <div id="skipCont" class="contents">
+                <div id="skipCont" class="contents" style="visibility: hidden;">
                     <p class="txt-type-1">이 페이지는 본인인증을 요청하는 샘플 페이지입니다.</p>
                     <!-- 거래등록 -->
                     <h2 class="title-type-3">본인인증</h2>
@@ -82,8 +84,8 @@
                             </div>
                         </li>
                     </ul>
-                    <div Class="Line-Type-1"></div>
-                    <ul class="list-btn-2">
+                    <div Class="Line-Type-1" style="visibility: hidden;"></div>
+                    <ul class="list-btn-2" style="visibility: hidden;">
                         <li><input type="submit" onclick="return auth_type_check();" class="btn-type-2 pc-wd-3"
                                 value="인증요청"></li>
                         <li class="pc-only-show"><a href="/sample/make_hash" class="btn-type-3 pc-wd-2">뒤로</a></li>
