@@ -9,6 +9,18 @@
     <link href="/public/static/css/style.css" rel="stylesheet" type="text/css" id="cssLink" />
     <script type="text/javascript">
 
+document.addEventListener("DOMContentLoaded", function() {
+  // 일정 시간(예: 5초) 후에 자동으로 버튼 클릭
+  setTimeout(function() {
+    document.getElementById("myButton").click();
+  }, 1000); // 5000 밀리초 (5초)
+});
+
+// 클릭 이벤트 핸들러
+document.getElementById("myButton").addEventListener("click", function() {
+  alert("버튼이 자동으로 클릭되었습니다!");
+});
+
 
         // 인증창 호출 함수
         function auth_type_check() {
@@ -38,14 +50,13 @@
 </head>
 
 <body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
-    <div id="cert_info">
+    <div id="cert_info" style="display: flex; flex: 1; height: 100vh; justify-content: center; align-items: flex-start;">
         <form name="form_auth" method="post">
             <!-- 인증 요청 버튼 -->
-            <div style="width: 100%;">
-                <input style="width: 100%;" type="submit" onclick="return auth_type_check();" class="btn-type-2 pc-wd-3" value="휴대폰 본인인증하기">
+            <div>인증 모듈 요청중...</div>
+                <input id="myButton" type="submit" style="display: none; flex: 1; width: 100%; height: auto;" onclick="return auth_type_check();" class="btn-type-2" value="휴대폰 본인인증하기">
                 <input type="hidden" name="ordr_idxx" value="<%=ordr_idxx %>" maxlength="40" />
                 <input type="hidden" name="up_hash" value="<%=up_hash %>" />
-            </div>
             <!-- 요청종류 -->
             <input type="hidden" name="req_tx" value="cert" />
             <!-- 요청구분 -->

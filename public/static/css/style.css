@@ -71,7 +71,7 @@ select::-moz-focus-inner{border:0;padding:0;}
 .pc-only-show{display:none;}
 .m-only-show{display:block;}
 .wrap{position:relative;min-height:100%;}
-.header{position:relative;min-height:18px;padding:10px 50px 11px 50px;border-bottom:1px solid #dfdfdf;}
+.header{position:relative;min-height:18px;}
 .header .title{font-size:14px;line-height:18px;color:#000;font-weight:500;text-align:center;}
 .header .btn-back{position:absolute;top:0;left:0;padding:9px 20px 10px 20px;}
 .header .btn-back > span{position:relative;display:inline-block;width:10px;height:20px;font-size:0;line-height:0;text-indent:-9999px;vertical-align:top;}
@@ -100,9 +100,9 @@ select::-moz-focus-inner{border:0;padding:0;}
 .btn-type-1:focus .icon-arrow:before{background-color:#fff;}
 .btn-type-1:hover .icon-arrow:after,
 .btn-type-1:focus .icon-arrow:after{background-color:#fff;}
-.btn-type-2{display:block;box-sizing:border-box;padding:8px 10px; background:#d9d9d9; border-radius:4px;font-size:15px;line-height:22px;color:black;font-weight:bold;text-align:center;transition:background-color 0.2s ease;}
+.btn-type-2{ display:flex; width: 100%;box-sizing:border-box;padding:8px 10px;background:#fa2828;border-radius:4px;font-size:15px;line-height:22px;color:#fff;font-weight:bold;text-align:center;transition:background-color 0.2s ease;}
 .btn-type-2:hover,
-.btn-type-2:focus{background-color:#c8c8c8;}
+.btn-type-2:focus{background-color:#8e0606;}
 .btn-type-2.disable{background-color:#fc9393;}
 .btn-type-3{display:block;box-sizing:border-box;padding:8px 10px;background:#858585;border-radius:4px;font-size:15px;line-height:22px;color:#fff;font-weight:bold;text-align:center;transition:background-color 0.2s ease;}
 .btn-type-3:hover,
@@ -110,7 +110,7 @@ select::-moz-focus-inner{border:0;padding:0;}
 .btn-type-3.disable{background-color:#c1c1c1;}
 
 /* input */
-.ipt-type-1{position:relative;}
+.ipt-type-1{position:relative; margin: 5px;}
 .ipt-type-1 > input{box-sizing:border-box;width:100%;padding:5px 29px 5px 9px;border:1px solid #f5f5f5;border-radius:3px;background-color:#f5f5f5;font-size:12px;line-height:18px;color:#000;}
 .ipt-type-1 > input:focus{border-color:#fa2828;outline:0;}
 .ipt-type-1 > input:disabled{opacity:1;-webkit-text-fill-color:#c6c6c6;color:#c6c6c6;} /* ios bug fix*/
