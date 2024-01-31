@@ -10,10 +10,7 @@ app.use("/", indexRouter);
 
 app.use(
   cors({
-    origin: [
-      "https://dinnermate-node-server-0d7d5dc74685.herokuapp.com",
-      "http://localhost:3001",
-    ],
+    origin: [process.env.deploy_url],
     credentials: true,
     optionsSuccessStatus: 200,
   })

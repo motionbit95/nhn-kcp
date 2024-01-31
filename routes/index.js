@@ -23,7 +23,7 @@ router.get("/sample/make_hash", function (req, res) {
 router.post("/sample/kcp_cert_start", function (req, res) {
   // 본인 확인 요청 데이터
   res.render("sample/kcp_cert_start", {
-    Ret_URL: process.env.g_conf_Ret_URL,
+    Ret_URL: process.env.deploy_url + process.env.g_conf_Ret_URL,
     site_cd: f_get_parm(req.body.site_cd),
     ordr_idxx: f_get_parm(req.body.ordr_idxx),
     up_hash: f_get_parm(req.body.up_hash),
@@ -124,7 +124,7 @@ router.post("/sample/kcp_cert_res", function (req, res) {
             sbParam.res_msg = dec_res_msg;
             sbParam.user_name = dec_user_name;
             res.render("sample/kcp_cert_res", {
-              next_page: process.env.g_conf_next_page,
+              next_page: process.env.app_url + process.env.g_conf_next_page,
               data: JSON.stringify(data),
               sbParam: JSON.stringify(sbParam),
             });
