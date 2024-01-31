@@ -14,14 +14,6 @@ router.get("/", function (req, res) {
   });
 });
 
-router.get("/redirect", (req, res) => {
-  // 클라이언트에게 리디렉션을 알림
-  res.status(301).send({
-    redirectTo: "https://dinnermate-node-server-0d7d5dc74685.herokuapp.com/",
-    // redirectTo: "http://localhost:3000/info",
-  });
-});
-
 // make_hash PAGE
 router.get("/sample/make_hash", function (req, res) {
   res.render("sample/make_hash");
@@ -31,6 +23,7 @@ router.get("/sample/make_hash", function (req, res) {
 router.post("/sample/kcp_cert_start", function (req, res) {
   // 본인 확인 요청 데이터
   res.render("sample/kcp_cert_start", {
+    Ret_URL: process.env.g_conf_Ret_URL,
     site_cd: f_get_parm(req.body.site_cd),
     ordr_idxx: f_get_parm(req.body.ordr_idxx),
     up_hash: f_get_parm(req.body.up_hash),
@@ -131,6 +124,7 @@ router.post("/sample/kcp_cert_res", function (req, res) {
             sbParam.res_msg = dec_res_msg;
             sbParam.user_name = dec_user_name;
             res.render("sample/kcp_cert_res", {
+              next_page: process.env.g_conf_next_page,
               data: JSON.stringify(data),
               sbParam: JSON.stringify(sbParam),
             });
@@ -199,11 +193,11 @@ function makeSignatureData(data) {
   // "splPrikeyPKCS8.pem" 은 테스트용 개인키
   // "changeit" 은 테스트용 개인키비밀번호
 
-  const filePath = "../certificate/splPrikeyPKCS8.pem";
-  var password = "changeit";
+  // const filePath = "../certificate/splPrikeyPKCS8.pem";
+  // var password = "changeit";
 
-  // const filePath = "../certificate/KCP_AUTH_AJZLF_PRIKEY.pem";
-  // var password = "wlsghks2@!";
+  const filePath = "../certificate/KCP_AUTH_AJZLF_PRIKEY.pem";
+  var password = "wlsghks2@!";
 
   // 현재 스크립트가 위치한 디렉토리를 기준으로 상대경로를 절대경로로 변환
   const absoluteFilePath = path.resolve(__dirname, filePath);
