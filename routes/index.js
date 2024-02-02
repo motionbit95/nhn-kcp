@@ -128,7 +128,7 @@ router.post("/sample/kcp_cert_res", function (req, res) {
             var queryParams = new URLSearchParams();
             queryParams.set("name", data.user_name);
             queryParams.set("phoneNumber", data.phone_no);
-            queryParams.set("birthdate", data.data);
+            queryParams.set("birthdate", data.birth_day);
             queryParams.set("gender", data.sex_code);
 
             sbParam.res_msg = dec_res_msg;
