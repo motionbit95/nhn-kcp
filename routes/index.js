@@ -121,10 +121,24 @@ router.post("/sample/kcp_cert_res", function (req, res) {
               "euc-kr"
             );
 
+            console.log("data>>>>>", data);
+            console.log("sbParam >>>>>", sbParam);
+
+            // URL 쿼리 매개변수 생성
+            var queryParams = new URLSearchParams();
+            queryParams.set("name", data.user_name);
+            queryParams.set("phoneNumber", data.phone_no);
+            queryParams.set("birthdate", data.data);
+            queryParams.set("gender", data.sex_code);
+
             sbParam.res_msg = dec_res_msg;
             sbParam.user_name = dec_user_name;
             res.render("sample/kcp_cert_res", {
-              next_page: process.env.app_url + process.env.g_conf_next_page,
+              next_page:
+                process.env.app_url +
+                process.env.g_conf_next_page +
+                "?" +
+                queryParams.toString(),
               data: JSON.stringify(data),
               sbParam: JSON.stringify(sbParam),
             });
