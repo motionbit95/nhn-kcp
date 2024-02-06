@@ -10,7 +10,7 @@ app.use("/", indexRouter);
 
 app.use(
   cors({
-    origin: [process.env.deploy_url],
+    origin: [process.env.deploy_url, process.env.app_url],
     credentials: true,
     optionsSuccessStatus: 200,
   })
