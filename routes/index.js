@@ -293,6 +293,7 @@ router.post("/pg", (req, res) => {
    파트너 인증
  */
 router.post("/pg/auth", async (req, res, next) => {
+  console.log("test");
   try {
     const caseParams = req.body; // 상황별 파트너 인증 파라미터
     const params = {
